@@ -26,7 +26,7 @@ $(function () {
   var currentDay = $('#currentDay');
   var currentHour = dayjs().hour();
 
-  init();
+
 
   // At start up, call functions to display real time and read saved schedules
   function init(){  
@@ -80,18 +80,12 @@ $(function () {
 
   // Read saved schedule content from local storage by the saved hours
   function readLocalSchedules(){
-    for (index = 9; index < 18; index++){
-      // $(`#${'hour-'+index}`).val(localStorage.getItem('hour-'+index));
-
-      $("#hour-9 .description").val(localStorage.getItem('hour-9'));
-      $("#hour-10 .description").val(localStorage.getItem('hour-10'));
-      $("#hour-11 .description").val(localStorage.getItem('hour-11'));
-      $("#hour-12 .description").val(localStorage.getItem('hour-12'));
-      $("#hour-13 .description").val(localStorage.getItem('hour-13'));
-      $("#hour-14 .description").val(localStorage.getItem('hour-14'));
-      $("#hour-15 .description").val(localStorage.getItem('hour-15'));
-      $("#hour-16 .description").val(localStorage.getItem('hour-16'));
-      $("#hour-17 .description").val(localStorage.getItem('hour-17'));
+    for (let index = 9; index < 18; index++){
+      $(`#hour-${index} .description`).val(localStorage.getItem(`hour-${index}`));
     }
   }
+
+  init();
 });
+
+
