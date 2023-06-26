@@ -72,7 +72,7 @@ $(function () {
   $(".saveBtn").on("click",function(event){
     event.preventDefault();
     // Read the input content from the text area as a child 
-    var scheduleContent = $(this).children(".description").val();
+    var scheduleContent = $(this).siblings(".description").val();
     // Read the box ID as the parent for the hour number
     var scheduleHour = $(this).parent(".time-block").attr("id");
     localStorage.setItem(scheduleHour,scheduleContent);
@@ -81,6 +81,8 @@ $(function () {
   // Read saved schedule content from local storage by the saved hours
   function readLocalSchedules(){
     for (index = 9; index < 18; index++){
+      // $(`#${'hour-'+index}`).val(localStorage.getItem('hour-'+index));
+
       $("#hour-9 .description").val(localStorage.getItem('hour-9'));
       $("#hour-10 .description").val(localStorage.getItem('hour-10'));
       $("#hour-11 .description").val(localStorage.getItem('hour-11'));
